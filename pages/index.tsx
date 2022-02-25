@@ -21,10 +21,10 @@ const Home: NextPage = () => {
     loader?
     <Audio></Audio>
     :
-    videoUrl.map(row => (
-      <div className='video'>
+    videoUrl.map((row,i) => (
+      <div key={i} className='video'>
       <video
-      key={row["id"]}
+      
         src={row["acf"]["link"]} autoPlay loop muted playsInline></video>
         </div>)
     )
