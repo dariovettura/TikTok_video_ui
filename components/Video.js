@@ -9,15 +9,15 @@ const Video = (props) => {
 
     let options = {
         rootMargin: "0px",
-        threshold: [0.25, 0.75]
+        threshold: [0.9]
       };
 
     let handlePlay = (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            videoRef.current.play();
+            videoRef.current?.play();
           } else {
-            videoRef.current.pause();
+            videoRef?.current?.pause();
           }
         });
       };
@@ -25,23 +25,29 @@ const Video = (props) => {
       let observer = new IntersectionObserver(handlePlay, options);
   
       observer.observe(videoRef.current);
+
+    //   window.addEventListener('scroll',handleScroll)
+
+    //   return () => {
+    //     window.removeEventListener('scroll', handleScroll);
+    //   };
   }, []);
 
   const startVideo = () => {
-    videoRef.current.pause();
+    videoRef.current?.pause();
     setPlaying(false);
   };
 
   const pauseVideo = () => {
-    videoRef.current.play();
+    videoRef.current?.play();
     setPlaying(true);
   };
 
-  const handleScroll = (e) => {
-    if (playing) {
-      pauseVideo();
-    }
-  };
+//   const handleScroll = (e) => {
+//     if (playing) {
+//       pauseVideo();
+//     }
+//   };
 
   const handleVideoPress = () => {
     if (playing) {
