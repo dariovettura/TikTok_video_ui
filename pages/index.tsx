@@ -24,7 +24,7 @@ const Home: NextPage = () => {
     videoUrl.map((row,i) => (
       <div key={i} className='video'>
       <video
-      
+      className='video_player'
         src={row["acf"]["link"]} autoPlay loop muted playsInline></video>
         </div>)
     )
@@ -39,6 +39,8 @@ const Home: NextPage = () => {
     <div>
    <div className='app_video'>
      
+  {renderContent()}
+  {renderContent()}
   {renderContent()}
   </div>
     </div>
