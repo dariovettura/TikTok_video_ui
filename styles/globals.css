@@ -17,8 +17,8 @@ html{
   scroll-snap-align: start;
 }
 .video_player{
-  display: block;
+ 
   height: 100%;
   width: 100%;
-  object-fit: contain;
+  object-fit: fill;
 }
