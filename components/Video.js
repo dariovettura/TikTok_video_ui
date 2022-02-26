@@ -64,6 +64,7 @@ const Video = (props) => {
         ref={videoRef}
         className="video_player"
         src={props.src}
+        playsInline
         autoPlay
         loop
       ></video>
