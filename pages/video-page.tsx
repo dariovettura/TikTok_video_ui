@@ -5,37 +5,37 @@ import axios from 'axios'
 import { GetStaticPropsResult } from 'next'
 
 interface VideoProps{
-    video?:any[]
+    video?:any[],
+  
 }
 
 
-const VideoPage: React.FC<VideoProps> = ({video=[]})=>{
+const VideoPage: React.FC<VideoProps> = ({video})=>{
     const [videoUrl, setVideoUrl] = React.useState(video)
-    const [loader,setLoader] = React.useState(true)
+    const [loader, setLoader] = React.useState(true)
   
   
-    const getVideoUrl = () => {
-      return axios.get("/api/get_data")
-        .then(res => { setVideoUrl(res.data); setLoader(false) })
-        .catch(err => console.error(err))
-    }
+    // const getVideoUrl = () => {
+    //   return axios.get("/api/get_data")
+    //     .then(res => { setVideoUrl(res.data);  })
+    //     .catch(err => console.error(err))
+    // }
   
    
   
     const renderContent = () => (
-      loader?
+      !video?
       <Audio></Audio>
       :
-      videoUrl.map((row,i) => (
+      video?.map((row,i) => (
        <Video key={i} src={row["acf"]["link"]}></Video>
       )
     ))
   
   
     React.useEffect(() => {
-      setVideoUrl(video);
+   if(video)
       setLoader(false)
-      console.log("video",video)
     }, [])
   
     return (
@@ -60,6 +60,7 @@ const VideoPage: React.FC<VideoProps> = ({video=[]})=>{
     //const menu =  result.data
   
     const res = await fetch(url);
+   
     const video = await res.json();
   
     //  const res = await fetch('https://.../posts')
@@ -70,6 +71,7 @@ const VideoPage: React.FC<VideoProps> = ({video=[]})=>{
     return {
       props: {
         video,
+    
       },
       revalidate: 1,
     };
