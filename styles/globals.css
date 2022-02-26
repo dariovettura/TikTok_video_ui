@@ -3,6 +3,7 @@
 html{
  scroll-snap-type: y mandatory;
 }
+body{margin: 0;}
 .app_video{
   position: relative;
   height: 100vh;
