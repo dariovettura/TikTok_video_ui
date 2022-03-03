@@ -1,8 +1,9 @@
 import React from 'react'
 import { Audio } from  'react-loader-spinner'
-import Video from '../components/Video'
+import Player from '../components/Player'
 import axios from 'axios'
 import { GetStaticPropsResult } from 'next'
+import Videotsx from "../components/Videotsx"
 
 interface VideoProps{
     video?:any[],
@@ -28,7 +29,8 @@ const VideoPage: React.FC<VideoProps> = ({video})=>{
       <Audio></Audio>
       :
       video?.map((row,i) => (
-       <Video key={i} src={row["acf"]["link"]}></Video>
+        <Videotsx key={i} src={row["acf"]["link"]}></Videotsx>
+    
       )
     ))
   
