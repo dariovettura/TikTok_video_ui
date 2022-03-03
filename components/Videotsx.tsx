@@ -47,7 +47,6 @@ const Videotsx: React.FC<VideoProps> = ({ src }) => {
         playing={inView}
         loop
       />
-      <h2>Element is inside the viewport: {inView.toString()}</h2>
     </div>
     //    <video
 
