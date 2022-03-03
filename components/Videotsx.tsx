@@ -4,14 +4,15 @@ import { InView, useInView } from "react-intersection-observer";
 import ReactPlayer from "react-player";
 
 interface VideoProps {
-  src: string,
+  src?: string,
+  muted?:boolean
 
 }
 
-const Videotsx: React.FC<VideoProps> = ({ src }) => {
+const Videotsx: React.FC<VideoProps> = ({ src ,muted}) => {
   const videoRef = React.useRef<any>(null);
   // const [inView, setInView] = React.useState(false);
-  const [muted, setMuted] = React.useState(true);
+ 
 
 
   const [ref, inView] = useInView({
@@ -33,9 +34,7 @@ const Videotsx: React.FC<VideoProps> = ({ src }) => {
 
 
     <div ref={ref} className="video">
-      <div className="v-top-bar">
-        <button onClick={()=>setMuted(!muted)}> unmute</button>
-      </div>
+     
       <ReactPlayer
         config={{ youtube: { playerVars: { disablekb: 1 } } }}
 

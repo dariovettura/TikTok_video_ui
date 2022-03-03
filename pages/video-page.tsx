@@ -14,6 +14,7 @@ interface VideoProps{
 const VideoPage: React.FC<VideoProps> = ({video})=>{
     const [videoUrl, setVideoUrl] = React.useState(video)
     const [loader, setLoader] = React.useState(true)
+    const [muted, setMuted] = React.useState(false)
   
   
     // const getVideoUrl = () => {
@@ -29,7 +30,7 @@ const VideoPage: React.FC<VideoProps> = ({video})=>{
       <Audio></Audio>
       :
       video?.map((row,i) => (
-        <Videotsx key={i} src={row["acf"]["link"]}></Videotsx>
+        <Videotsx muted={muted} key={i} src={row["acf"]["link"]}></Videotsx>
     
       )
     ))
@@ -43,7 +44,9 @@ const VideoPage: React.FC<VideoProps> = ({video})=>{
     return (
       <div>
      <div className='app_video'>
-  
+     <div className="v-top-bar">
+        <button onClick={()=>setMuted(!muted)}> unmute</button>
+      </div>
     {renderContent()}
     </div>
       </div>
