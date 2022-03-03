@@ -39,7 +39,7 @@ const Videotsx: React.FC<VideoProps> = ({ src ,muted}) => {
         config={{ youtube: { playerVars: { disablekb: 1 } } }}
 
         volume={0.5}
-        muted={muted}
+        muted
         className="video_player"
         url={src}
         playsinline
