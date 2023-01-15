@@ -11,7 +11,7 @@ const Home: NextPage = () => {
   return (
     <div style={{
       width: "100vw",
-      heigth: "100vh",
+      height: "100vh",
       display: "flex",
       flexDirection: "column",
       gap: "10px",
