@@ -15,7 +15,7 @@ const Home: NextPage = () => {
       display: "flex",
       flexDirection: "column",
       gap: "10px",
-      alignItem: "center",
+      alignItems: "center",
       justifyContent: "center"
     }}>
       <span>TIK TOK UI VIDEO</span>
